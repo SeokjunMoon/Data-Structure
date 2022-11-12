@@ -36,9 +36,9 @@ int pow(int a, int b) {
 
 int str2int(string s) {
 	int result = 0;
-	int strlen = s.size();
-	for (int i = 0; i < strlen; i++) {
-		if (s[i] >= '0' && s[i] <= '9') result += pow(10, strlen - i - 2) * (s[i] - '0');
+	int slen = s.size();
+	for (int i = 0; i < slen; i++) {
+		if (s[i] >= '0' && s[i] <= '9') result += pow(10, slen - i - 1) * (s[i] - '0');
 	}
 	return result;
 }
@@ -52,12 +52,10 @@ bool check(string s) {
 
 
 void addSchedule(string schedule, int* table) {
-	if (!check(schedule)) {
-		return;
-	}
+	if (!check(schedule)) return;
 	int space_index = schedule.find(' ');
 	char schedule_time = (char) schedule[space_index + 1];
-	int start_time = str2int(schedule.substr(0, space_index + 1));
+	int start_time = str2int(schedule.substr(0, space_index));
 	int table_time = getMenuTime(schedule_time);
 	
 	for (int i = start_time; i < (start_time + table_time); i++) {
