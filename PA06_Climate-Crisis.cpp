@@ -44,7 +44,7 @@ void zero_cluster(vector<vector<int>>& mat, int n, int m, int x, int y, int coun
 		int yy = y + dy[i];
 		
 		if (isValid(n, m, xx, yy) && mat[xx][yy] == 0)
-				zero_cluster(mat, n, m, xx, yy, count);
+			zero_cluster(mat, n, m, xx, yy, count);
 	}
 }
 
